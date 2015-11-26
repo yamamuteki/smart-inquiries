@@ -1,0 +1,27 @@
+<%= form_for @distribution, html: { class: 'form-horizontal' } do |f| %>
+  <% if @distribution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@distribution.errors.count, "error") %> prohibited this distribution from being saved:</h2>
+
+      <ul>
+      <% @distribution.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <%= link_to '削除', @distribution, class: 'btn btn-danger', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <%= f.submit '保存', class: 'btn btn-primary pull-right' %>
+      <%= link_to 'キャンセル', distributions_path, class: 'btn btn-default pull-right' %>
+    </div>
+  </div>
+<% end %>

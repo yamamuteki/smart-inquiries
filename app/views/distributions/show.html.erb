@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h1>配信表示</h1>
+<p>
+  <strong>名前</strong>
+  <%= @distribution.name %>
+</p>
+
+<%= link_to '編集', edit_distribution_path(@distribution), class: 'btn btn-default pull-right' %>
+<%= link_to 'キャンセル', distributions_path, class: 'btn btn-default pull-right' %>

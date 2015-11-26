@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>配信一覧</h1>
+
+<%= link_to '新規配信', new_distribution_path, class: 'btn btn-primary pull-right' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>作成日時</th>
+      <th>更新日時</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @distributions.each do |distribution| %>
+      <tr>
+        <td><%= link_to distribution.name, distribution %></td>
+        <td><%= distribution.created_at %></td>
+        <td><%= distribution.updated_at %></td>
+        <td>
+          <%= link_to '編集', edit_distribution_path(distribution), class: 'btn btn-default' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
