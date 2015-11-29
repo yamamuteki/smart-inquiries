@@ -1,0 +1,18 @@
+<h1 class="page-header">配信先編集</h1>
+<%= form_for [@distribution, @respondent], html: { class: 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :email, 'メールアドレス', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <%= link_to '削除', distribution_respondent_path(@distribution, @respondent), class: 'btn btn-danger', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <div class="pull-right">
+        <%= link_to '一覧に戻る', distribution_path(@distribution), class: 'btn btn-default' %>
+        <%= f.submit '保存', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'distributions#index'
-  resources :distributions
+  resources :distributions do
+    resources :respondents, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :inquiries, param: :uuid, only: [:show, :create, :edit]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

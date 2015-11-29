@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126081506) do
+ActiveRecord::Schema.define(version: 20151129093201) do
 
   create_table "distributions", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151126081506) do
     t.integer  "distribution_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "uuid"
   end
 
 end

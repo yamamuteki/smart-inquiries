@@ -1,10 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>配信表示</h1>
-<p>
-  <strong>名前</strong>
-  <%= @distribution.name %>
-</p>
+<h1 class="page-header"><%= @distribution.name %></h1>
 
-<%= link_to '編集', edit_distribution_path(@distribution), class: 'btn btn-default pull-right' %>
-<%= link_to 'キャンセル', distributions_path, class: 'btn btn-default pull-right' %>
+<div class="pull-right">
+  <%= link_to '配信先追加', new_distribution_respondent_path(@distribution), class: 'btn btn-default' %>
+  <%= link_to 'メール配信', '', class: 'btn btn-danger', data: { confirm: '本当にメールを配信しますか？' } %>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>メールアドレス</th>
+      <th>登録日時</th>
+      <th>初回配信日時</th>
+      <th>最終配信日時</th>
+      <th>配信回数</th>
+      <th>初回開封日時</th>
+      <th>回答日時</th>
+      <th>配信ステータス</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @distribution.respondents.each_with_index do |respondent, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= respondent.email %></td>
+        <td><%= l respondent.created_at %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <%= link_to '編集', edit_distribution_respondent_path(@distribution, respondent), class: 'btn btn-default' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pull-right">
+  <%= link_to '一覧に戻る', distributions_path, class: 'btn btn-default' %>
+  <%= link_to '編集', edit_distribution_path(@distribution), class: 'btn btn-default' %>
+</div>
