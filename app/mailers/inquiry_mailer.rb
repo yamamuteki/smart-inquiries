@@ -6,8 +6,8 @@ class InquiryMailer < ApplicationMailer
   #   en.inquiry_mailer.request_email.subject
   #
   def request_email(respondent)
-    @url = "#{distributions_url}/#{respondent.uuid}"
+    @url = "#{inquiries_url}/#{respondent.uuid}/edit"
     logger.debug @url
-    mail to: respondent.email
+    mail to: respondent.email, subject: 'アンケート入力のお願い'
   end
 end
