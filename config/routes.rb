@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'distributions#index'
   resources :distributions do
+    get 'send_email', on: :member
     resources :respondents, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :inquiries, param: :uuid, only: [:show, :create, :edit]

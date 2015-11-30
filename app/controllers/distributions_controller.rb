@@ -1,5 +1,5 @@
 class DistributionsController < ApplicationController
-  before_action :set_distribution, only: [:show, :edit, :update, :destroy]
+  before_action :set_distribution, only: [:show, :edit, :update, :destroy, :send_email]
 
   def index
     @distributions = Distribution.all
@@ -35,6 +35,13 @@ class DistributionsController < ApplicationController
   def destroy
     @distribution.destroy
     redirect_to distributions_url, notice: '削除しました。'
+  end
+
+  def send_email
+    @distribution.respondents.each do |respondent|
+      InquiryMailer.request_email(respondent).deliver_now
+    end
+    redirect_to @distribution, notice: '送信しました。'
   end
 
   private

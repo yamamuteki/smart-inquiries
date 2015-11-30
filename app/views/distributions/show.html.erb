@@ -4,7 +4,7 @@
 
 <div class="pull-right">
   <%= link_to '配信先追加', new_distribution_respondent_path(@distribution), class: 'btn btn-default' %>
-  <%= link_to 'メール配信', '', class: 'btn btn-danger', data: { confirm: '本当にメールを配信しますか？' } %>
+  <%= link_to 'メール配信', send_email_distribution_path, class: 'btn btn-danger', data: { confirm: '本当にメールを配信しますか？' } %>
 </div>
 <table class="table">
   <thead>
