@@ -1,4 +1,6 @@
 class InquiriesController < ApplicationController
+  skip_before_action :basic
+
   def show
   end
 
