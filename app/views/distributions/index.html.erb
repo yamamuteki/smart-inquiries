@@ -9,7 +9,14 @@
   <thead>
     <tr>
       <th>名前</th>
-      <th>更新日時</th>
+      <th>登録日時</th>
+      <th>配信先</th>
+      <th>配信済</th>
+      <th>配信率</th>
+      <th>開封済</th>
+      <th>開封率</th>
+      <th>回答済</th>
+      <th>回答率</th>
       <th>操作</th>
     </tr>
   </thead>
@@ -18,9 +25,16 @@
     <% @distributions.each do |distribution| %>
       <tr>
         <td><%= link_to distribution.name, distribution %></td>
-        <td><%= l distribution.updated_at %></td>
+        <td><%= l distribution.created_at %></td>
+        <td><%= all = distribution.respondents.count %></td>
+        <td><%= sent = distribution.sent_respondents.count %></td>
+        <td><%= number_to_percentage sent / all.to_f * 100, precision: 0 unless all == 0 %></td>
+        <td><%= accessed = distribution.accessed_respondents.count %></td>
+        <td><%= number_to_percentage accessed / all.to_f * 100, precision: 0 unless all == 0 %></td>
+        <td><%= answered = distribution.answered_respondents.count %></td>
+        <td><%= number_to_percentage answered / all.to_f * 100, precision: 0 unless all == 0 %></td>
         <td>
-          <%= link_to '編集', edit_distribution_path(distribution), class: 'btn btn-default' %>
+          <%= link_to '詳細', distribution, class: 'btn btn-default' %>
         </td>
       </tr>
     <% end %>

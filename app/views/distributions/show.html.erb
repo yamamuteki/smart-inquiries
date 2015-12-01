@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="page-header"><%= @distribution.name %></h1>
+<h1 class="page-header">
+  <%= @distribution.name %>
+  <%= link_to '編集', edit_distribution_path(@distribution), class: 'btn btn-default' %>
+</h1>
 
 <div class="pull-right">
   <%= link_to '配信先追加', new_distribution_respondent_path(@distribution), class: 'btn btn-default' %>
