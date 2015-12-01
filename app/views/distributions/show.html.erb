@@ -17,7 +17,7 @@
       <th>配信回数</th>
       <th>初回開封日時</th>
       <th>回答日時</th>
-      <th>配信ステータス</th>
+      <th>ステータス</th>
       <th>操作</th>
     </tr>
   </thead>
@@ -28,12 +28,12 @@
         <td><%= index + 1 %></td>
         <td><%= respondent.email %></td>
         <td><%= l respondent.created_at %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= l(respondent.first_sent_at) if respondent.first_sent_at %></td>
+        <td><%= l(respondent.last_sent_at) if respondent.last_sent_at %></td>
+        <td><%= respondent.sent_count %></td>
+        <td><%= l(respondent.accessed_at) if respondent.accessed_at %></td>
+        <td><%= l(respondent.answered_at) if respondent.answered_at %></td>
+        <td><%= respondent.status %></td>
         <td>
           <%= link_to '編集', edit_distribution_respondent_path(@distribution, respondent), class: 'btn btn-default' %>
         </td>
