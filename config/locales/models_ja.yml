@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      distribution: 配信
+      respondent: 配信先
+      inquiry: アンケート
+    attributes:
+      distribution:
+        name: 名前
+      respondent:
+        email: メールアドレス
+        uuid: ユニークID
+        first_sent_at: 初回送信日時
+        last_sent_at: 最終送信日時
+        sent_count: 送信回数
+        accessed_at: 訪問日時
+        answered_at: 回答日時
+      inquiry:
+        content: 回答内容
