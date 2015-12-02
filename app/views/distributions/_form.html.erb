@@ -7,7 +7,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-12">
-      <%= link_to '削除', @distribution, class: 'btn btn-danger', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <%= link_to '削除', @distribution, class: 'btn btn-danger', method: :delete, data: { confirm: '本当に削除しますか？' } unless @distribution.new_record? %>
       <div class="pull-right">
         <%= link_to '一覧に戻る', :back , class: 'btn btn-default' %>
         <%= f.submit '保存', class: 'btn btn-primary' %>
