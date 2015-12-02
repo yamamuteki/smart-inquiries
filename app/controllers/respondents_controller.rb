@@ -1,29 +1,23 @@
 class RespondentsController < ApplicationController
+  before_action :set_distribution, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_respondent, only: [:edit, :update, :destroy]
+
   def new
-    @distribution = Distribution.find(params[:distribution_id])
     @respondent = @distribution.respondents.build
   end
 
   def create
-    distribution = Distribution.find(params[:distribution_id])
     emails = params[:emails].to_s.strip
     emails.each_line do |line|
-      respondent = distribution.respondents.build
-      respondent.email = line.strip
-      respondent.uuid = SecureRandom.uuid
-      respondent.save
+      @distribution.respondents.create(email: line.strip)
     end
-    redirect_to distribution
+    redirect_to @distribution
   end
 
   def edit
-    @distribution = Distribution.find(params[:distribution_id])
-    @respondent = @distribution.respondents.find(params[:id])
   end
 
   def update
-    @distribution = Distribution.find(params[:distribution_id])
-    @respondent = @distribution.respondents.find(params[:id])
     if @respondent.update(respondent_params)
       redirect_to @distribution
     else
@@ -32,13 +26,19 @@ class RespondentsController < ApplicationController
   end
 
   def destroy
-    @distribution = Distribution.find(params[:distribution_id])
-    @respondent = @distribution.respondents.find(params[:id])
     @respondent.destroy!
     redirect_to @distribution
   end
 
   private
+
+  def set_distribution
+    @distribution = Distribution.find(params[:distribution_id])
+  end
+
+  def set_respondent
+    @respondent = @distribution.respondents.find(params[:id])
+  end
 
   def respondent_params
     params.require(:respondent).permit(:email)

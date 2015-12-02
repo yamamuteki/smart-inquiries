@@ -1,14 +1,13 @@
 class InquiriesController < ApplicationController
   skip_before_action :basic
+  before_action :set_respondent, only: [:create, :edit]
 
   def show
   end
 
   def create
-    @respondent = Respondent.find_by(uuid: params[:uuid])
     if @respondent.create_inquiry(content: params[:content].to_json)
-      @respondent.answered_at = Time.zone.now
-      @respondent.save
+      @respondent.update_answered_at
       redirect_to inquiry_path(params[:uuid])
     else
       render :edit
@@ -16,10 +15,14 @@ class InquiriesController < ApplicationController
   end
 
   def edit
-    @respondent = Respondent.find_by(uuid: params[:uuid])
-    return redirect_to inquiry_path(params[:uuid]) if @respondent.inquiry
-    @respondent.accessed_at = Time.zone.now
-    @respondent.save
+    @respondent.update_accessed_at
     @inquiry = Inquiry.new
+  end
+
+  private
+
+  def set_respondent
+    @respondent = Respondent.find_by(uuid: params[:uuid])
+    redirect_to inquiry_path(params[:uuid]) if @respondent.inquiry
   end
 end

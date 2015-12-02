@@ -26,13 +26,13 @@
       <tr>
         <td><%= link_to distribution.name, distribution %></td>
         <td><%= l distribution.created_at %></td>
-        <td><%= all = distribution.respondents.count %></td>
-        <td><%= sent = distribution.sent_respondents.count %></td>
-        <td><%= number_to_percentage sent / all.to_f * 100, precision: 0 unless all == 0 %></td>
-        <td><%= accessed = distribution.accessed_respondents.count %></td>
-        <td><%= number_to_percentage accessed / all.to_f * 100, precision: 0 unless all == 0 %></td>
-        <td><%= answered = distribution.answered_respondents.count %></td>
-        <td><%= number_to_percentage answered / all.to_f * 100, precision: 0 unless all == 0 %></td>
+        <td><%= distribution.respondents.count %></td>
+        <td><%= distribution.sent_respondents_count %></td>
+        <td><%= number_to_percentage distribution.sent_respondents_rate, precision: 0 %></td>
+        <td><%= distribution.accessed_respondents_count %></td>
+        <td><%= number_to_percentage distribution.accessed_respondents_rate, precision: 0 %></td>
+        <td><%= distribution.answered_respondents_count %></td>
+        <td><%= number_to_percentage distribution.answered_respondents_rate, precision: 0 %></td>
         <td>
           <%= link_to '詳細', distribution, class: 'btn btn-default' %>
         </td>

@@ -38,14 +38,9 @@ class DistributionsController < ApplicationController
   end
 
   def send_email
-    @distribution.respondents.reject(&:answered_at).each do |respondent|
+    @distribution.not_answered_respondents.each do |respondent|
       InquiryMailer.request_email(respondent).deliver_now
-      now = Time.zone.now
-      respondent.first_sent_at ||= now
-      respondent.last_sent_at = now
-      respondent.sent_count ||= 0
-      respondent.sent_count += 1
-      respondent.save
+      respondent.update_sent_attributes
     end
     redirect_to @distribution, notice: '送信しました。'
   end
