@@ -2,7 +2,8 @@ class Respondent < ActiveRecord::Base
   after_initialize :set_default, if: :new_record?
 
   belongs_to :distribution
-  has_one :inquiry
+  has_one :inquiry, dependent: :destroy
+
   validates :email, presence: true
 
   def status
