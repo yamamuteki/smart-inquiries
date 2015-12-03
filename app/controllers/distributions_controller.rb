@@ -3,9 +3,23 @@ class DistributionsController < ApplicationController
 
   def index
     @distributions = Distribution.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        filename = "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}_all_answered.csv"
+        send_data Distribution.answered_csv_all, filename: filename, type: 'text/csv'
+      end
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.csv do
+        filename = "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}_#{@distribution.name}_answered.csv"
+        send_data @distribution.answered_csv, filename: filename, type: 'text/csv'
+      end
+    end
   end
 
   def new
