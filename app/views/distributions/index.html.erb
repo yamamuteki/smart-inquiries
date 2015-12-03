@@ -7,34 +7,34 @@
 <table class="table">
   <thead>
     <tr>
-      <th>#</th>
+      <th class="text-right">#</th>
       <th>名前</th>
       <th>登録日時</th>
-      <th>配信先</th>
-      <th>配信済</th>
-      <th>配信率</th>
-      <th>開封済</th>
-      <th>開封率</th>
-      <th>回答済</th>
-      <th>回答率</th>
-      <th>操作</th>
+      <th class="text-right">配信先</th>
+      <th class="text-right">配信済</th>
+      <th class="text-right">配信率</th>
+      <th class="text-right">開封済</th>
+      <th class="text-right">開封率</th>
+      <th class="text-right">回答済</th>
+      <th class="text-right">回答率</th>
+      <th class="text-right">操作</th>
     </tr>
   </thead>
 
   <tbody>
     <% @distributions.each_with_index do |distribution, index| %>
       <tr>
-        <td><%= index + 1 %></td>
+        <td class="text-right"><%= index + 1 %></td>
         <td><%= link_to distribution.name, distribution %></td>
         <td><%= l distribution.created_at %></td>
-        <td><%= distribution.respondents.count %></td>
-        <td><%= distribution.sent_respondents_count %></td>
-        <td><%= number_to_percentage distribution.sent_respondents_rate, precision: 0 %></td>
-        <td><%= distribution.accessed_respondents_count %></td>
-        <td><%= number_to_percentage distribution.accessed_respondents_rate, precision: 0 %></td>
-        <td><%= distribution.answered_respondents_count %></td>
-        <td><%= number_to_percentage distribution.answered_respondents_rate, precision: 0 %></td>
-        <td>
+        <td class="text-right"><%= distribution.respondents.count %></td>
+        <td class="text-right"><%= distribution.sent_respondents_count %></td>
+        <td class="text-right"><%= number_to_percentage distribution.sent_respondents_rate, precision: 0 %></td>
+        <td class="text-right"><%= distribution.accessed_respondents_count %></td>
+        <td class="text-right"><%= number_to_percentage distribution.accessed_respondents_rate, precision: 0 %></td>
+        <td class="text-right"><%= distribution.answered_respondents_count %></td>
+        <td class="text-right"><%= number_to_percentage distribution.answered_respondents_rate, precision: 0 %></td>
+        <td class="text-right">
           <%= link_to '詳細', distribution, class: 'btn btn-default' %>
         </td>
       </tr>

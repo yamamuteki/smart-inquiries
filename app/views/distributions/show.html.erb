@@ -11,36 +11,36 @@
 <table class="table">
   <thead>
     <tr>
-      <th>#</th>
+      <th class="text-right">#</th>
       <th>メールアドレス</th>
       <th>登録日時</th>
       <th>初回配信日時</th>
       <th>最終配信日時</th>
-      <th>配信回数</th>
+      <th class="text-right">配信回数</th>
       <th>訪問日時</th>
       <th>回答日時</th>
-      <th>ステータス</th>
-      <th>操作</th>
+      <th class="text-right">ステータス</th>
+      <th class="text-right">操作</th>
     </tr>
   </thead>
 
   <tbody>
     <% @distribution.respondents.each_with_index do |respondent, index| %>
       <tr>
-        <td><%= index + 1 %></td>
+        <td class="text-right"><%= index + 1 %></td>
         <td><%= respondent.email %></td>
         <td><%= l respondent.created_at %></td>
-        <td><%= l(respondent.first_sent_at) if respondent.first_sent_at %></td>
-        <td><%= l(respondent.last_sent_at) if respondent.last_sent_at %></td>
-        <td><%= respondent.sent_count %></td>
-        <td><%= l(respondent.accessed_at) if respondent.accessed_at %></td>
-        <td><%= l(respondent.answered_at) if respondent.answered_at %></td>
-        <td>
+        <td><%= l respondent.first_sent_at if respondent.first_sent_at %></td>
+        <td><%= l respondent.last_sent_at if respondent.last_sent_at %></td>
+        <td class="text-right"><%= respondent.sent_count %></td>
+        <td><%= l respondent.accessed_at if respondent.accessed_at %></td>
+        <td><%= l respondent.answered_at if respondent.answered_at %></td>
+        <td class="text-right">
           <span class="status-label status-label-<%= respondent.status.to_s %>">
             <%= respondent.status_label %>
           </span>
         </td>
-        <td>
+        <td class="text-right">
           <%= link_to '編集', edit_distribution_respondent_path(@distribution, respondent), class: 'btn btn-default' %>
         </td>
       </tr>
