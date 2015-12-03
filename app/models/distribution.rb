@@ -33,10 +33,10 @@ class Distribution < ActiveRecord::Base
 
   def answered_csv
     require 'csv'
-    headers = ['#', 'distribution', 'email', 'answered_at', 'q1', 'q2', 'q3']
+    headers = ['distribution', '#', 'email', 'answered_at', 'q1', 'q2', 'q3']
     csv_data = CSV.generate force_quotes: true, write_headers: true, headers: headers do |csv|
       answered_respondents.each_with_index do |respondent, index|
-        csv << [index + 1, name, respondent.email, respondent.answered_at] + respondent.inquiry.content_hash.values
+        csv << [name, index + 1, respondent.email, respondent.answered_at] + respondent.inquiry.content_hash.values
       end
     end
     csv_data.encode(Encoding::SJIS)
