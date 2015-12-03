@@ -17,5 +17,9 @@
     <%= label_tag 'content[q2]', '質問2' %>
     <%= text_field_tag 'content[q2]', '', class: 'form-control' %>
   </div>
+   <div class="form-group">
+    <%= label_tag 'content[q3]', '質問3' %>
+    <%= autocomplete_field_tag 'content[q3]', '', 'https://furuta-master.herokuapp.com/medicines/autocomplete_medicine_name', class: 'form-control', 'data-autocomplete-label' => "薬剤がみつかりません" %>
+  </div>
    <%= submit_tag 'アンケートを送信', class: 'btn btn-primary' %>
 <% end %>

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/peterwillcn/rails4-autocomplete.git
+  revision: 440a2f0ba6456f87119675b2b703f56dc54dffec
+  specs:
+    rails4-autocomplete (1.1.1)
+      rails (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -67,6 +74,8 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -80,6 +89,7 @@ GEM
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.4-x64-mingw32)
       mini_portile (~> 0.6.0)
+    pg (0.18.3)
     pg (0.18.3-x64-mingw32)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -158,8 +168,10 @@ DEPENDENCIES
   coffee-script-source (= 1.8.0)
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   pg
   rails (= 4.2.4)
+  rails4-autocomplete!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sqlite3
