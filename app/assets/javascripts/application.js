@@ -17,3 +17,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$.toaster({ settings: { timeout: 3000 } });

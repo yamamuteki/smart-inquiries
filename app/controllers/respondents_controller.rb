@@ -11,7 +11,7 @@ class RespondentsController < ApplicationController
     emails.each_line do |line|
       @distribution.respondents.create(email: line.strip)
     end
-    redirect_to @distribution
+    redirect_to @distribution, notice: '追加しました。'
   end
 
   def edit
@@ -19,15 +19,16 @@ class RespondentsController < ApplicationController
 
   def update
     if @respondent.update(respondent_params)
-      redirect_to @distribution
+      redirect_to @distribution, notice: '更新しました。'
     else
+      flash.now[:alert] = '入力内容をご確認ください。'
       render :edit
     end
   end
 
   def destroy
     @respondent.destroy!
-    redirect_to @distribution
+    redirect_to @distribution, notice: '削除しました。'
   end
 
   private

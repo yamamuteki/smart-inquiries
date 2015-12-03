@@ -20,6 +20,7 @@ class DistributionsController < ApplicationController
     if @distribution.save
       redirect_to distributions_path, notice: '作成しました。'
     else
+      flash.now[:alert] = '入力内容をご確認ください。'
       render :new
     end
   end
@@ -28,6 +29,7 @@ class DistributionsController < ApplicationController
     if @distribution.update(distribution_params)
       redirect_to @distribution, notice: '更新しました。'
     else
+      flash.now[:alert] = '入力内容をご確認ください。'
       render :edit
     end
   end
@@ -42,7 +44,7 @@ class DistributionsController < ApplicationController
       InquiryMailer.request_email(respondent).deliver_now
       respondent.update_sent_attributes
     end
-    redirect_to @distribution, notice: '送信しました。'
+    redirect_to @distribution, notice: 'メールを送信しました。'
   end
 
   private

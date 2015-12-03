@@ -17,6 +17,8 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid">
+      <% if flash[:notice] %><script>$.toaster('<%= flash[:notice] %>', '通知', 'success');</script><% end %>
+      <% if flash[:alert] %><script>$.toaster('<%= flash[:alert] %>','失敗', 'danger');</script><% end %>
       <%= yield %>
     </div>
   </body>
