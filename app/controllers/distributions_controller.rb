@@ -6,7 +6,7 @@ class DistributionsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        filename = "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}_all_answered.csv"
+        filename = "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}_answered_all.csv"
         send_data Distribution.answered_csv_all, filename: filename, type: 'text/csv'
       end
     end
@@ -16,7 +16,7 @@ class DistributionsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        filename = "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}_#{@distribution.name}_answered.csv"
+        filename = "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}_answered_#{@distribution.name}.csv"
         send_data @distribution.answered_csv, filename: filename, type: 'text/csv'
       end
     end
