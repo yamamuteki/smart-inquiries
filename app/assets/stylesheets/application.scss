@@ -24,3 +24,25 @@
   margin-top: -10px;
 }
 
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.status-label {
+  @extend .label;
+  font-size: 100%;
+}
+
+.status-label-unsent {
+  @extend .label-default;
+}
+.status-label-sent {
+  @extend .label-info;
+}
+.status-label-accessed {
+  @extend .label-warning;
+}
+.status-label-answered {
+  @extend .label-success;
+}
+

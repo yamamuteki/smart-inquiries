@@ -17,3 +17,11 @@ ja:
         answered_at: 回答日時
       inquiry:
         content: 回答内容
+    enums:
+      respondent:
+        status:
+          unsent: 未送信
+          sent: 送信済
+          accessed: 訪問済
+          answered: 回答済
+

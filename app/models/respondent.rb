@@ -7,10 +7,14 @@ class Respondent < ActiveRecord::Base
   validates :email, presence: true
 
   def status
-    return '回答済' if answered_at
-    return '開封済' if accessed_at
-    return '配信済' if first_sent_at
-    '未配信'
+    return :answered if answered_at
+    return :accessed if accessed_at
+    return :sent if first_sent_at
+    :unsent
+  end
+
+  def status_label
+    I18n.t status.to_s, scope: [:activerecord, :enums, :respondent, :status]
   end
 
   def update_sent_attributes
