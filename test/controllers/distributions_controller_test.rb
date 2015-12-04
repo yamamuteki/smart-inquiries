@@ -31,6 +31,15 @@ class DistributionsControllerTest < ActionController::TestCase
     assert_redirected_to distributions_path
   end
 
+  test "should not create distribution" do
+    assert_no_difference('Distribution.count') do
+      post :create, distribution: { name: nil }
+    end
+
+    assert flash.now[:alert]
+    assert_response :success
+  end
+
   test "should show distribution" do
     get :show, id: @distribution
     assert_response :success
@@ -52,11 +61,24 @@ class DistributionsControllerTest < ActionController::TestCase
     assert_redirected_to distribution_path(assigns(:distribution))
   end
 
+  test "should not update distribution" do
+    patch :update, id: @distribution, distribution: { name: nil }
+    assert flash.now[:alert]
+    assert_response :success
+  end
+
   test "should destroy distribution" do
     assert_difference('Distribution.count', -1) do
       delete :destroy, id: @distribution
     end
 
     assert_redirected_to distributions_path
+  end
+
+  test 'should send email deliver' do
+    assert_difference('ActionMailer::Base.deliveries.count') do
+      get :send_email, id: @distribution
+    end
+    assert flash.now[:notice]
   end
 end
