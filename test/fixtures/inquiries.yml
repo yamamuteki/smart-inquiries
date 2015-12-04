@@ -2,8 +2,8 @@
 
 one:
   content: MyString
-  respondent: 
+  respondent: one
 
 two:
   content: MyString
-  respondent: 
+  respondent: #nil

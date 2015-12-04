@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  distributed: 
-  answered: 
-  distribution: 
+  email: one@exsample.com
+  distribution: one
+  uuid: 39d72eda-4eb6-495c-96d7-fca98a53369f
 
 two:
   email: MyString
-  distributed: 
-  answered: 
-  distribution: 
+  distribution: #nil
+  uuid: 0da17599-97f7-4f4a-ac9b-f39345b5045e
