@@ -16,7 +16,7 @@ class Distribution < ActiveRecord::Base
   end
 
   def answered_respondents_count
-    sent_respondents.count
+    answered_respondents.count
   end
 
   def sent_respondents_rate
@@ -28,7 +28,7 @@ class Distribution < ActiveRecord::Base
   end
 
   def answered_respondents_rate
-    rate sent_respondents.count
+    rate answered_respondents.count
   end
 
   def answered_csv
