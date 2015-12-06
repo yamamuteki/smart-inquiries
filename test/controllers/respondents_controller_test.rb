@@ -32,6 +32,12 @@ class RespondentsControllerTest < ActionController::TestCase
     assert_redirected_to distribution_path(assigns(:distribution))
   end
 
+   test "should not update respondent" do
+    patch :update, distribution_id: @distribution, id: @respondent, respondent: { email: nil }
+    assert flash.now[:alert]
+    assert_response :success
+  end
+
   test "should destroy respondent" do
     assert_difference('Respondent.count', -1) do
       delete :destroy, distribution_id: @distribution, id: @respondent
