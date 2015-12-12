@@ -24,6 +24,6 @@ module SmartInquiries
     config.active_record.raise_in_transactional_callbacks = true
 
     # Disable click and open tracking for SendGrid.
-    config.action_mailer.default_options = { 'X-SMTPAPI' => { filters: { clicktrack: { settings: { enable: 0 } }, opentrack: { settings: { enable: 0 } } } }.to_json }
+    config.action_mailer.default_options = { from: ENV['AM_FROM'], 'X-SMTPAPI' => { filters: { clicktrack: { settings: { enable: 0 } }, opentrack: { settings: { enable: 0 } } } }.to_json }
   end
 end
