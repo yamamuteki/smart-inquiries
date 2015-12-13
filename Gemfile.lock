@@ -61,9 +61,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    daemons (1.2.3)
     debug_inspector (0.0.2)
     docile (1.1.5)
     erubis (2.7.0)
+    eventmachine (1.0.8)
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -90,7 +92,8 @@ GEM
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.4-x64-mingw32)
       mini_portile (~> 0.6.0)
-    puma (2.15.3)
+    pg (0.18.4)
+    pg (0.18.4-x64-mingw32)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -144,6 +147,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.11)
     sqlite3 (1.3.11-x64-mingw32)
+    thin (1.6.4)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (~> 1.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -174,13 +181,14 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
-  puma
+  pg
   rails (= 4.2.4)
   rails4-autocomplete!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simplecov
   sqlite3
+  thin
   turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)
