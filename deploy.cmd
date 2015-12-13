@@ -31,7 +31,7 @@ setlocal enabledelayedexpansion
 SET ARTIFACTS=%~dp0%..\artifacts
 
 :: for Ruby
-set RUBY_VERSION=1.9.3
+set RUBY_VERSION=2.0.0
 set RUBY_HOME=%DEPLOYMENT_TARGET%\bin\ruby\%RUBY_VERSION%
 
 
