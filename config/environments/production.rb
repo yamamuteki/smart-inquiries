@@ -66,12 +66,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "smart-inquiries.azurewebsites.net", :protocol => 'http' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => 'email-smtp.us-east-1.amazonaws.com',
+    :address => 'smtp.sendgrid.net',
     :port    => '587',
     :authentication => :plain,
-    :user_name => ENV['SES_USERNAME'],
-    :password => ENV['SES_PASSWORD'],
-    :domain => 'amazonaws.com'
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
+    :domain => 'azurewebsites.net'
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
