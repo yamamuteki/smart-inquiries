@@ -1,4 +1,4 @@
-# README [![Build Status](https://travis-ci.org/yamamuteki/smart-inquiries.svg?branch=master)](https://travis-ci.org/yamamuteki/smart-inquiries) [![Coverage Status](https://coveralls.io/repos/github/yamamuteki/smart-inquiries/badge.svg?branch=master)](https://coveralls.io/github/yamamuteki/smart-inquiries?branch=master)
+# README [![Build Status](https://travis-ci.org/yamamuteki/smart-inquiries.svg?branch=master)](https://travis-ci.org/yamamuteki/smart-inquiries) [![Coverage Status](https://coveralls.io/repos/github/yamamuteki/smart-inquiries/badge.svg?branch=master)](https://coveralls.io/github/yamamuteki/smart-inquiries?branch=master) [![Code Climate](https://codeclimate.com/github/yamamuteki/smart-inquiries/badges/gpa.svg)](https://codeclimate.com/github/yamamuteki/smart-inquiries)
 
 ##インストール方法
 
