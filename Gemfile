@@ -51,3 +51,5 @@ gem 'coffee-script-source', '1.8.0'
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete', github: 'peterwillcn/rails4-autocomplete'
 gem 'simplecov', require: false, group: :test
+gem 'coveralls', require: false
+
